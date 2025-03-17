@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 300px; margin: auto; }
+        input, button { width: 100%; margin: 5px 0; padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container" id="authSection">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p><a href="#" onclick="resetPassword()">Forgot Password?</a></p>
+
+        <h2>Signup</h2>
+        <input type="text" id="signupUsername" placeholder="Username">
+        <select id="signupCategory">
+            <option>A</option>
+            <option>B</option>
+        </select>
+        <input type="password" id="signupPassword" placeholder="Password">
+        <button onclick="signup()">Signup</button>
+    </div>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzre_DCcl5JDOGg2v5TCMZeMolSjxjurLDIyueBuoCQ3uG-E8td3u-D5eat314_bUj1fw/exec";
+
+        function sendRequest(data, callback) {
+            fetch(scriptURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(response => callback(response))
+            .catch(error => alert("Failed to connect to server!"));
+        }
+
+        function login() {
+            sendRequest({ action: "login", username: loginUsername.value, password: loginPassword.value }, function(res) {
+                alert(res.message);
+            });
+        }
+
+        function signup() {
+            sendRequest({ action: "signup", username: signupUsername.value, category: signupCategory.value, password: signupPassword.value }, function(res) {
+                alert(res.message);
+            });
+        }
+
+        function resetPassword() {
+            let username = prompt("Enter your username:");
+            if (username) {
+                let newPassword = prompt("Enter new password:");
+                sendRequest({ action: "resetPassword", username, newPassword }, function(res) {
+                    alert(res.message);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

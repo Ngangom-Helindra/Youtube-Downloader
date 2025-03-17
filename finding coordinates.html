@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Image Coordinates</title>
+    <style>
+        img {
+            max-width: 100%; /* Makes image responsive */
+        }
+        .coordinates {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click on the image to get coordinates</h1>
+    <p>GG</p>
+    
+    <img src="C:/Users/Ngangom Helindra/Pictures/Saved Pictures/memories/20190329050713_IMG_1410.jpg" id="image" alt="Click to get coordinates" onclick="getCoordinates(event)">
+
+    <div class="coordinates">
+        <p>X: <span id="x-coordinate">0</span></p>
+        <p>Y: <span id="y-coordinate">0</span></p>
+    </div>
+
+    <script>
+        function getCoordinates(event) {
+            // Get the image element
+            var img = document.getElementById("image");
+            
+            // Get the position of the image
+            var imgPosition = img.getBoundingClientRect();
+
+            // Calculate the X and Y coordinates relative to the image
+            var x = event.clientX - imgPosition.left;
+            var y = event.clientY - imgPosition.top;
+
+            // Display the coordinates
+            document.getElementById("x-coordinate").innerText = x;
+            document.getElementById("y-coordinate").innerText = y;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowing Rainbow Text</title>
+    <style>
+        /* Apply the gradient animation */
+        @keyframes rainbowFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%; /* Ensures smooth animation */
+            -webkit-background-clip: text; /* Clips the background to the text */
+            -webkit-text-fill-color: transparent; /* Makes the text itself transparent */
+            animation: rainbowFlow 10s ease infinite; /* Flowing rainbow effect */
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        body {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Boycha</h1>
+    <p>GG</p>
+</body>
+</html>

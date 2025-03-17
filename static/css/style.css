@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('../images/bg.jpg');  /* Make sure bg.jpg is in static/images/ */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    color: red;
+    opacity: 0.7;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 480px;
+}
+
+.input-container {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.input-container label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.download-btn {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #ff4b2b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #ff6b4a;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.progress-container {
+    width: 100%;
+    height: 15px;
+    background: white;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none; 
+    overflow: hidden;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #ff4b2b;
+    transition: width 0.3s ease-in-out;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    line-height: 20px;
+    top: 0;
+}
